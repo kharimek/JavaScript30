@@ -21,6 +21,21 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+    :root {
+      --base: #ff0000;
+      --blur: 10px;
+      --spacing: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background-color: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl {
+      color: var(--base);
+    }
 
     /*
       misc styles, nothing to do with CSS variables
@@ -53,6 +68,20 @@
   </style>
 
   <script>
+
+  var inputs = document.querySelectorAll('.controls input');
+
+  function handleUpdate() {
+    var suffix = this.dataset.sizing || '';    
+    var propertyName = "--" + String(this.name);
+    document.documentElement.style.setProperty(propertyName, this.value + suffix);
+  }
+
+  htmlElements.forEach(element => element.addEventListener('event', callback));
+
+  document.documentElement
+  
+
   </script>
 
 </body>
